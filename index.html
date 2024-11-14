@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Multi-Category Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-image {
+            min-width: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .button {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .product {
+            background: #e9ecef;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #e8491d;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #35424a;
+            color: #ffffff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Multi-Category Website</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shopping.html">Shopping</a></li>
+                <li><a href="renting.html">Renting</a></li>
+                <li><a href="tutoring.html">Tutoring</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="product-carousel">
+            <h2>Featured Products</h2>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <div class="carousel-image">
+                        <img src="https://via.placeholder.com/800x400?text=Product+1" alt="Product 1">
+                    </div>
+                    <div class="carousel-image">
+                        <img src="https://via.placeholder.com/800x400?text=Product+2" alt="Product 2">
+                    </div>
+                    <div class="carousel-image">
+                        <img src="https://via.placeholder.com/800x400?text=Product+3" alt="Product 3">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="button" id="prevBtn">&#10094;</button>
+                    <button class="button" id="nextBtn">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="featured-rentals">
+            <h2>Featured Rentals</h2>
+            <div class="product-grid">
+                <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="Rental 1">
+                    <h3>Rental Item 1</h3>
+                    <p class="price">$9.99/day</p>
+                    <a href="renting.html" class="cta-button">View More</a>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="Rental 2">
+                    <h3>Rental Item 2</h3>
+                    <p class="price">$14.99/day</p>
+                    <a href="renting.html" class="cta-button">View More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="featured-tutoring">
+            <h2>Featured Tutoring Services</h2>
+            <div class="product-grid">
+                <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="Tutoring 1">
+                    <h3>Tutoring Service 1</h3>
+                    <p class="price">$30/hour</p>
+                    <a href="tutoring.html" class="cta-button">View More</a>
+                </div>
+                <div class="product">
+                    <img src="https://via.placeholder.com/150" alt="Tutoring 2">
+                    <h3>Tutoring Service 2</h3>
+                    <p class="price">$25/hour</p>
+                    <a href="tutoring.html" class="cta-button">View More</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Multi-Category Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.carousel-images');
+            const totalSlides = document.querySelectorAll('.carousel-image').length;
+            currentIndex = (index + totalSlides) % totalSlides;
+            slides.style.transform = `translateX(${-currentIndex * 100}%)`;
+        }
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            showSlide(currentIndex - 1);
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            showSlide(currentIndex + 1);
+        });
+    </script>
+</body>
+</html>

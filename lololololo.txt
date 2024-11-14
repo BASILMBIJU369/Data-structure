@@ -1,0 +1,18 @@
+how to check python version
+difference between list and tuple
+difference between array and list
+what is python what are its features
+applications of python
+operators in python
+what are conditional statements
+what are looping statements
+difference between dictonary and set
+what are the features of set
+what is pep 8
+what are the common built in data types in python
+what are the loop contriol statement in python
+whatr are modulus and packages in python
+what is interupt6ed language and dynamically typed language   
+
+
+factorial of a number using recurssion
